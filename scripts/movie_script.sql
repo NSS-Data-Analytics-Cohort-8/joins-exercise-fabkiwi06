@@ -9,6 +9,12 @@ LIMIT 1;
 -- Semi-Tough, 1977, $37,187,139
 
 -- 2. What year has the highest average imdb rating?
+SELECT release_year, AVG(imdb_rating) AS avg_imdb
+FROM specs
+INNER JOIN rating ON specs.movie_id = rating.movie_id
+GROUP BY release_year
+ORDER BY avg_imdb DESC;
+-- 1991
 
 -- 3. What is the highest grossing G-rated movie? Which company distributed it?
 
