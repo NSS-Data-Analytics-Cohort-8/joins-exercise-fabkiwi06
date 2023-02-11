@@ -52,3 +52,16 @@ LIMIT 1;
 -- Dirty Dancing
 
 -- 7. Which have a higher average rating, movies which are over two hours long or movies which are under two hours?
+--Less Than Two Hours:
+SELECT AVG(imdb_rating)
+FROM specs
+INNER JOIN rating ON specs.movie_id = rating.movie_id 
+WHERE length_in_min > 120
+-- Average Rating  7.257
+-- Two Hours Or More:
+SELECT AVG(imdb_rating)
+FROM specs
+INNER JOIN rating ON specs.movie_id = rating.movie_id 
+WHERE length_in_min <= 120
+--Average Rating 6.915
+
